@@ -1,0 +1,9 @@
+[Unit]
+Description=Network manager for oakestra
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/NetManager -p 6000
+
+[Install]
+WantedBy=multi-user.target
