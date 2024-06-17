@@ -1,6 +1,25 @@
 # Oakestra Edge Testbed
 
-## RPi Setup
+## Cluster Orchestrator Setup
+1. Export the requried environmental variables
+    ```bash
+    ## Choose a unique name for your cluster
+    export CLUSTER_NAME=Edge_Testbed
+    ## Set the location to the Forschungszentrum Garching
+    export CLUSTER_LOCATION=48.26, 11.66
+    ## Tell the NetManager where to find the system manager
+    export SYSTEM_MANAGER_URL=<IP of device>
+    ```
+2. Clone the repository and move into it
+    ```bash
+    git clone https://github.com/oakestra/oakestra.git && cd oakestra
+    ```
+3. Run the cluster orchestrator
+    ```bash
+    sudo -E docker-compose -f run-a-cluster/1-DOC.yaml up
+    ```
+
+## RPi (Node) Setup
 1. Install Raspberry Pi OS
 2. Download and unpack both the NodeEngine
 
@@ -33,9 +52,12 @@
 
 5. Copy unit files into `/etc/systemd/system/` and grant permissions
     ```bash
-    cp unit/NodeEngine.service /etc/systemd/system/
+    # Copy and set permissions for node engine service
+    sudo cp unit/NodeEngine.service /etc/systemd/system/
     sudo chmod 644 /etc/systemd/system/NodeEngine.service
-    cp unit/NetManager.service /etc/systemd/system/
+
+    # Copy and set permissions for net manager service
+    sudo cp unit/NetManager.service /etc/systemd/system/
     sudo chmod 644 /etc/systemd/system/NetManager.service
     ```
 6. Enable the services
