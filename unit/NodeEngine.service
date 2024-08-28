@@ -3,6 +3,9 @@ Description=Node engine for oakestra
 After=NetManager.service
 
 [Service]
+# Give NetManager a head start
+ExecStartPre=/bin/sleep 10
+
 Type=simple
 EnvironmentFile=/etc/NodeEngine/.config
 ExecStart=/usr/bin/NodeEngine -n 6000 -p 10100 -a ${CLUSTER_IP}
