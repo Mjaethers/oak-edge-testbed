@@ -82,7 +82,7 @@ sudo ./MHS35-show
 
     ```bash
     sudo mkdir /etc/NodeEngine
-    sudo sh -c 'echo "CLUSTER_IP=[<IPv6 ADDRESS OF THE CLUSTER ORCHESTRATOR>]" >> /etc/NodeEngine/.config'
+    sudo sh -c 'echo "CLUSTER_IP=[<IPv6 ADDRESS OF THE CLUSTER ORCHESTRATOR>]" > /etc/NodeEngine/.config'
     ```
 
 5. Copy unit files into `/etc/systemd/system/` and grant permissions
